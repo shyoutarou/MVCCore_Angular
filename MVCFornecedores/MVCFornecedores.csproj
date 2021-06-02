@@ -5,12 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\FornecedoresController.cs" />
     <Compile Remove="Data\Repository\EmpresaRepository.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="index666.html" />
   </ItemGroup>
 
   <ItemGroup>
