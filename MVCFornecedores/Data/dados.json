@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 0,
+    "Nome": "Microsoft",
+    "CPF_CNPJ": "04712500000107",
+    "RG": null,
+    "DataNascimento": null,
+    "DataCadastro": "2020-01-20T00:00:00"
+  },
+  {
+    "Id": 0,
+    "Nome": "IBM",
+    "CPF_CNPJ": "33372251012677",
+    "RG": null,
+    "DataNascimento": null,
+    "DataCadastro": "2010-02-21T00:00:00"
+  },
+  {
+    "Id": 0,
+    "Nome": "John Doe",
+    "CPF_CNPJ": "11009311000138",
+    "RG": "48176504",
+    "DataNascimento": "1947-06-01T00:00:00",
+    "DataCadastro": "2001-07-29T00:00:00"
+  }
+]

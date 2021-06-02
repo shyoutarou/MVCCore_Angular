@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Fornecedores: @ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+        <header class="container">
+            <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+                <h1 class="navbar-brand"><i class="fas fa-parachute-box"></i><a style="text-decoration:none; color:inherit"  asp-controller="Fornecedores" asp-action="Index">Fornecedores</a></h1>
+                @*<h1 class="navbar-brand"><i class="fas fa-parachute-box" title="Home"></i><a asp-controller="Fornecedores" asp-action="Index">Fornecedores</a></h1>*@
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="theMenu" class="navbar-collapse collapse">
+                    <ul class="navbar-nav">
+                        @*<li class="nav-item"><a class="nav-link" asp-controller="Fornecedores" asp-action="Index">Home</a></li>*@
+                        <li class="nav-item"><a class="nav-link" asp-controller="Fornecedores" asp-action="Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Fornecedores" asp-action="About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Fornecedores" asp-action="Lista">Lista</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section class="container">
+            <h2 class="text-center">@ViewBag.Title</h2>
+        </section>
+        @RenderBody()
+        <footer class="container">
+            <div class="text-center">
+                Copyright 2021
+            </div>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html> 
