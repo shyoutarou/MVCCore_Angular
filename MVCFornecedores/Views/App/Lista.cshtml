@@ -1,0 +1,96 @@
+﻿@model MVCFornecedores.ViewModels.EmpresaViewModel 
+
+@{
+    ViewBag.Title = "Lista Fornecedores";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body bg-light">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly "> </div>
+            <div class="form-group">
+                <label asp-for="NomeFantasia">Nome:</label>
+                <input asp-for="NomeFantasia" class="form-control" />
+                <span asp-validation-for="NomeFantasia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CNPJ">CNPJ:</label>
+                <input type="email" asp-for="CNPJ" class="form-control" />
+                <span asp-validation-for="CNPJ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCadastro">Data Cadastro:</label>
+                <input type="text" asp-for="DataCadastro" class="form-control" />
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" /><i class="fas fa-search" title="Pesquisar"></i>Pesquisar</button>
+                <div class="text-success">@ViewBag.UserMessage</div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-8 offset-md-2">
+    <p>Count: @Model.Fornecedores.Count()</p>
+    <div id="divResultadoPesquisa" class="tabela-responsiva">
+        <table id="resultadoPesquisa" class="tabela tabela-full">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>RG</th>
+                    <th>Contatos</th>
+                    <th>Excluir</th>
+                    <th>Editar</th>
+                    <th>Visualizar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.Fornecedores)
+                {
+
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nome</td>
+                        <td>@item.RG </td>
+                        @if (@item.Contatos?.Count > 0)
+                        {
+                            <td>
+                                NDA
+                            </td>
+                        }
+                        else
+                        {
+                            <td>Sem Contatos</td>
+                        }
+
+                        <td>
+                            <a href="javascript:void(0)" class="Excluir" onclick="ALE.Excluir(this.id)" id="@item.Id" )>
+                                <i class="fas fa-trash-alt" title="Excluir"></i>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript:void(0)" class="editar" onclick="ALE.Editar(this.id)" id="@item.Id">
+                                <i class="fas fa-pencil-alt" title="Editar"></i>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="javascript:void(0)" class="Visualizar" onclick="ALE.Visualizar(this.id)" id="@item.Id" )>
+                                <i class="fas fa-info-circle" title="Visualizar"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

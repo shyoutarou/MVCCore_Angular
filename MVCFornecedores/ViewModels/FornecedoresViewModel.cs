@@ -20,6 +20,7 @@ namespace MVCFornecedores.ViewModels
         public DateTime? DataNascimento { get; set; }
 
         public IEnumerable<Fornecedor> Fornecedores { get; set; }
+        public IEnumerable<Contato> Contatos { get; set; }
 
         [Required]
         [MinLength(5)]

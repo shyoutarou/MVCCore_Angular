@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using MVCFornecedores.Data;
 using MVCFornecedores.Data.Repository;
 using MVCFornecedores.Services;
+using Newtonsoft.Json;
+using System.Reflection;
 
 namespace MVCFornecedores
 {
@@ -22,19 +25,29 @@ namespace MVCFornecedores
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FornecedorContext>();
+            try
+            {
+                services.AddDbContext<FornecedorContext>();
 
-            services.AddTransient<DataSeeder>();
+                services.AddTransient<IMailService, NullMailService>();
 
-            services.AddTransient<IMailService, NullMailService>();
+                services.AddTransient<DataSeeder>();
 
-            services.AddTransient<IFornecedorRepository, FornecedorRepository>();
+                services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-            //AddRazorRuntimeCompilation automatiza a compilação ao alterar as Views
-            services.AddControllersWithViews()
-              .AddRazorRuntimeCompilation();
+                services.AddTransient<IDataRepository, DataRepository>();
 
-            services.AddRazorPages();
+                services.AddControllersWithViews()
+                  .AddRazorRuntimeCompilation()
+                  .AddNewtonsoftJson(cfg => cfg.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+                services.AddRazorPages();
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +74,7 @@ namespace MVCFornecedores
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Fornecedores}/{action=Index}/{id?}");
+                    pattern: "{controller=App}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();
             });

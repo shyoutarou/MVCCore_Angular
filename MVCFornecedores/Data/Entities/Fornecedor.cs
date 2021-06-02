@@ -1,5 +1,4 @@
-﻿using MVCFornecedores.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace MVCFornecedores.Data.Entities
