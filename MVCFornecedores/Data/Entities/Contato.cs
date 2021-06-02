@@ -7,5 +7,7 @@ namespace MVCFornecedores.Data.Entities
         public int Id { get; set; }
         public TipoContato Tipo_Contato { get; set; }
         public string Desc_Contato { get; set; }
+
+        public Fornecedor Fornecedor { get; set; }
     }
 }

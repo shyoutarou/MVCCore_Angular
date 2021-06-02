@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    console.log("Hello World");
+
     var theForm = $("#theForm");
     theForm.hide();
 

@@ -1,6 +1,4 @@
-﻿console.log("Hello World");
-
-  var theForm =document.getElementById("theForm");
+﻿  var theForm =document.getElementById("theForm");
   theForm.hidden = true;
 
   var button = document.getElementById("buyButton");

@@ -13,8 +13,7 @@ namespace MVCFornecedores.Data
               .ReverseMap();
 
             CreateMap<Fornecedor, FornecedoresViewModel>()
-              .ForMember(o => o.Id_Fornecedor, ex => ex.MapFrom(i => i.Id))
-              .ForMember(o => o.Id_Empresa, ex => ex.MapFrom(i => i.Empresa.Id))
+              .ForMember(o => o.EmpresaId, ex => ex.MapFrom(i => i.Empresa.Id))
               .ReverseMap();
         }
     }

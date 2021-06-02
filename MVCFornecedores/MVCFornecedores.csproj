@@ -5,12 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\FornecedoresController.cs" />
     <Compile Remove="Data\Repository\EmpresaRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="index666.html" />
+    <Content Remove="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="client\src\app\model\contato.ts" />
+    <None Remove="client\src\app\model\empresa.ts" />
+    <None Remove="client\src\app\model\fornecedor.ts" />
+    <None Remove="client\src\app\store\index.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="index.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +36,17 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\model\contato.ts" />
+    <TypeScriptCompile Include="client\src\app\model\empresa.ts" />
+    <TypeScriptCompile Include="client\src\app\model\fornecedor.ts" />
+    <TypeScriptCompile Include="client\src\app\store\index.ts" />
   </ItemGroup>
 
 </Project>
