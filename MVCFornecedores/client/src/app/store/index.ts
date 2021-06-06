@@ -13,6 +13,7 @@ export class Store {
     fornecedor = new Fornecedor();
     empresas = [] as any;
     fornecedores = new Array<Fornecedor>();
+    errorMessage = "";
 
     loadEmpresas() {
         return this.http.get<Observable<Empresa[]>>("/api/empresa")
@@ -26,5 +27,19 @@ export class Store {
         this.fornecedor.nome = "Ruy " + id;
         this.fornecedor.rg = id.toString() + id + id;
         this.fornecedores.push(this.fornecedor);
+    }
+
+    clearOrder() {
+        this.empresas = [] as any;
+    }
+
+    checkout() {
+
+        //const headers = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+
+        //return this.http.post("/api/orders", this.order, {
+        //    headers: headers
+        //});
+
     }
 }

@@ -2,10 +2,12 @@
 import { Store } from '../store/index';
 
 @Component({
-  selector: "empresa-list",
-  templateUrl: "empresasListView.component.html"
+  selector: "empresa-fornecedores",
+    templateUrl: "empresa_fornecedores.html"
 })
-export class EmpresaListView implements OnInit {
+export default class EmpresaFornecedoresPage implements OnInit {
+
+    title = 'EmpresaFornecedoresPage';
 
     constructor(public store: Store) {
     }

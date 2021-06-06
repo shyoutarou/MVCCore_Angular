@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import { EmpresaView } from './views/empresasView';
 import { FornecedorView } from './views/fornecedorView';
 import { Store } from './store/index';
+import router from './services/router';
+import EmpresaFornecedoresPage from './pages/empresa_fornecedores';
+import CheckoutPage from './pages/CheckoutPage';
 
 @NgModule({
   declarations: [
         AppComponent,
         EmpresaView,
-        FornecedorView
+        FornecedorView,
+        EmpresaFornecedoresPage,
+        CheckoutPage
   ],
   imports: [
       BrowserModule,
-      HttpClientModule 
+      HttpClientModule,
+      router
   ],
   providers: [Store],
   bootstrap: [AppComponent]
