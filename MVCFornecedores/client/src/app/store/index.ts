@@ -2,19 +2,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
+import { Empresa } from '../model/empresa';
+import { Fornecedor } from '../model/fornecedor';
 
 @Injectable()
 export class Store {
 
     constructor(private http: HttpClient) { }
 
-    public empresas = [] as any;
+    fornecedor = new Fornecedor();
+    empresas = [] as any;
+    fornecedores = new Array<Fornecedor>();
 
     loadEmpresas() {
-        return this.http.get<[]>("/api/empresa")
-            .pipe(map(data => {
-                this.empresas = data;
-                return;
-            }));
+        return this.http.get<Observable<Empresa[]>>("/api/empresa")
+            .pipe(map(data => this.empresas = data));
+    }
+
+    addToEmpresa(id: number = 0) {
+        let empresa = this.empresas[0];
+
+        this.fornecedor.id = id;
+        this.fornecedor.nome = "Ruy " + id;
+        this.fornecedor.rg = id.toString() + id + id;
+        this.fornecedores.push(this.fornecedor);
     }
 }

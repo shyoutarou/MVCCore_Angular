@@ -107,6 +107,25 @@ namespace MVCFornecedores.Controllers
             }
         }
 
+        public async Task<ActionResult<EmpresaViewModel>> ListaAngular()
+        {
+            try
+            {
+                var results = await _repository.FornecedoresAsync(new Fornecedor());
+
+                var model = new EmpresaViewModel();
+
+                model.Fornecedores = await _repository.FornecedoresAsync(new Fornecedor());
+                return View(model);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Erro ao listar Fornecedores: {ex}");
+                throw new ApplicationException("Erro ao listar Fornecedores");
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

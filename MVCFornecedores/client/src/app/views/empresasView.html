@@ -1,0 +1,41 @@
+﻿<div class="col-md-8 offset-md-2">
+    <p>Count: {{ store.empresas.length  }}</p>
+    <div id="divResultadoPesquisa" class="tabela-responsiva">
+        <table id="resultadoPesquisa" class="tabela tabela-full">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>CNPJ</th>
+                    <th>UF</th>
+                    <th>Excluir</th>
+                    <th>Editar</th>
+                    <th>Visualizar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of store.empresas">
+                    <td> {{ p.id }} </td>
+                    <td> {{ p.nomeFantasia }} </td>
+                    <td> {{ p.cnpj }} </td>
+                    <td> {{ p.uf }} </td>
+                    <td>
+                        <a href="javascript:void(0)" onclick="ALE.Excluir(this.id)" id="{{ p.id }}">
+                            <i class="fas fa-trash-alt" title="Excluir"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" onclick="ALE.Editar(this.id)" id="{{ p.id }}">
+                            <i class="fas fa-pencil-alt" title="Editar"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" (click)="store.addToEmpresa(p.id)" id="{{ p.id }}">
+                            <i class="fas fa-info-circle" title="Visualizar"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

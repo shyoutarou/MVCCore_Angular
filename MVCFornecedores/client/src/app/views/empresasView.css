@@ -1,0 +1,9 @@
+﻿.tabela {
+    border: 1px #ddd solid;
+    box-shadow: rgba(0,0,0,.4) 2px 2px;
+    margin: 2px;
+}
+
+.tabela-full {
+    font-size: .9rem;
+}

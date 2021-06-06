@@ -1,0 +1,45 @@
+﻿<div class="row">
+    <h3>Fornecedor</h3>
+    <p>Count: {{ store.fornecedor.id  }}</p>
+    <div><p>Fornecedores: {{ store.fornecedores.length  }}</p></div>
+    <table id="resultadoFornecedores" class="tabela tabela-full">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>cpF_CNPJ</th>
+                <th>rg</th>
+                <th>dataCadastro</th>
+                <th>dataNascimento</th>
+                <th>Excluir</th>
+                <th>Editar</th>
+                <th>Visualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of store.fornecedores">
+                <td> {{ p.id }} </td>
+                <td> {{ p.nome }} </td>
+                <td> {{ p.cpF_cnpj }} </td>
+                <td> {{ p.rg }} </td>
+                <td> {{ p.dataCadastro }} </td>
+                <td> {{ p.dataNascimento }} </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="ALE.Excluir(this.id)" id="{{ p.id }}">
+                        <i class="fas fa-trash-alt" title="Excluir"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="ALE.Editar(this.id)" id="{{ p.id }}">
+                        <i class="fas fa-pencil-alt" title="Editar"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" onclick="ALE.Visualizar(this.id)" id="{{ p.id }}">
+                        <i class="fas fa-info-circle" title="Visualizar"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
